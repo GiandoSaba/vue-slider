@@ -14,19 +14,19 @@
 <body>
     <div id="app" class="container">
         <div class="slider-wrapper">
-        <div class="prev">
+        <div class="prev" @click="prev">
             <i class="fas fa-angle-left"></i>
         </div>
         <div class="images">
             <img :src="`images/${images[counter]}`" alt="">
         </div>
-        <div class="next">
+        <div class="next" @click="next">
             <i class="fas fa-angle-right"></i>
         </div>
         <div class="nav">
-            <i class="fas fa-circle"></i>
-            <i class="fas fa-circle"></i>
-            <i class="fas fa-circle"></i>
+            <i v-for="(image, index) in images" 
+            class="fas fa-circle" 
+            :class="(index == counter) ? 'active' : ''"></i>
         </div>
         </div>
     </div>

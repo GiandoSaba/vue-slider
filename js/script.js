@@ -30,6 +30,10 @@ const app = new Vue({
                 this.counter = this.images.length - 1 ;
             }
         }
+    },
+    created() {
+        setInterval(() => {
+            this.next();
+        }, 3000)
     }
-
 });

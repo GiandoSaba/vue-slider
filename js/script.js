@@ -35,8 +35,6 @@ const app = new Vue({
             setInterval(() => {
                 if (!this.autoplayStop) {
                     this.next();
-                } else {
-                    clearInterval();
                 }
             }, 3000)
         }

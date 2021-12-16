@@ -16,6 +16,7 @@ const app = new Vue({
             'image3.jpg',
             'image4.jpg'
         ],
+        autoplayStop: false
     },
     methods: {
         next: function(){
@@ -29,11 +30,18 @@ const app = new Vue({
             if (this.counter < 0) {
                 this.counter = this.images.length - 1 ;
             }
+        },
+        autoplayStart: function(){
+            setInterval(() => {
+                if (!this.autoplayStop) {
+                    this.next();
+                } else {
+                    clearInterval();
+                }
+            }, 3000)
         }
     },
     created() {
-        setInterval(() => {
-            this.next();
-        }, 3000)
+        this.autoplayStart();
     }
 });

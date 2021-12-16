@@ -13,22 +13,22 @@
 
 <body>
     <div id="app" class="container">
-        <div class="slider-wrapper">
-        <div class="prev" @click="prev">
-            <i class="fas fa-angle-left"></i>
-        </div>
-        <div class="images">
-            <img :src="`images/${images[counter]}`" alt="">
-        </div>
-        <div class="next" @click="next">
-            <i class="fas fa-angle-right"></i>
-        </div>
-        <div class="nav">
-            <i v-for="(image, index) in images" 
-            class="fas fa-circle" 
-            :class="(index == counter) ? 'active' : ''"
-            @click="counter = index"></i>
-        </div>
+        <div class="slider-wrapper" @mouseover="autoplayStop = true" @mouseleave="autoplayStop = false">
+            <div class="prev" @click="prev">
+                <i class="fas fa-angle-left"></i>
+            </div>
+            <div class="images">
+                <img :src="`images/${images[counter]}`" alt="">
+            </div>
+            <div class="next" @click="next">
+                <i class="fas fa-angle-right"></i>
+            </div>
+            <div class="nav">
+                <i v-for="(image, index) in images" 
+                class="fas fa-circle" 
+                :class="(index == counter) ? 'active' : ''"
+                @click="counter = index"></i>
+            </div>
         </div>
     </div>
 
